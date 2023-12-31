@@ -18,14 +18,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-// 認証周り
 const auth = getAuth(app);
-// firestore
 const database = getFirestore(app);
 
 const provider = new GoogleAuthProvider();
 
-// 開発環境ではemulatorに接続
 const isDevelopment = import.meta.env.DEV;
 if (isDevelopment) {
   connectAuthEmulator(auth, "http://localhost:9099");
