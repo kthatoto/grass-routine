@@ -6,6 +6,8 @@ interface AuthStore {
   user: UserInfo | null;
   loading: boolean;
   error:  unknown | null;
+  signInWithGoogle: () => Promise<void>;
+  signOut: () => Promise<void>;
 }
 
 export default create<AuthStore>((set) => {
