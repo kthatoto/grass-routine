@@ -35,7 +35,7 @@ const Default = ({ children }: TemplateProps) => {
   const { user, signOut } = authStore();
   return (
     <MantineProvider theme={theme}>
-      <Notifications />
+      <Notifications position="top-center" />
       <ModalsProvider>
         <AppShell
           header={{ height: 60 }}
