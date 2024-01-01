@@ -1,23 +1,20 @@
-import { Button, Container } from "@material-ui/core";
-import { Google } from "@mui/icons-material";
 import authStore from "@/stores/authStore";
+import Default from "@/components/templates/Default";
+import Dashboard from "@/components/pages/Dashboard";
+import SignIn from "@/components/pages/SingIn";
 
 const App = () => {
   const auth = authStore();
 
   if (auth.loading) return <></>;
   return (
-    <Container>
+    <Default>
       {auth.user ? (
-        <h1>Signed In</h1>
+        <Dashboard />
       ) : (
-        <Button
-          onClick={auth.signInWithGoogle}
-          startIcon={<Google />}
-          variant="outlined"
-        >ログイン</Button>
+        <SignIn />
       )}
-    </Container>
+    </Default>
   );
 };
 export default App;
