@@ -5,7 +5,9 @@ import {
   Button,
   createTheme,
   Group,
+  Image,
   MantineProvider,
+  Stack,
   Text,
   Title,
 } from "@mantine/core";
@@ -59,7 +61,18 @@ const Default = ({ children }: TemplateProps) => {
           </AppShell.Header>
           <AppShell.Navbar p="md" bg="#eee">
             {user && (
-              <Button onClick={signOut}>ログアウト</Button>
+              <>
+                <Group mb={10}>
+                  {user.photoURL && (
+                    <Image src={user.photoURL} w={40} h={40} radius="50%"/>
+                  )}
+                  <Stack gap={0}>
+                    <Text fw="bold">{user.displayName}</Text>
+                    <Text>{user.email}</Text>
+                  </Stack>
+                </Group>
+                <Button onClick={signOut}>ログアウト</Button>
+              </>
             )}
           </AppShell.Navbar>
           <AppShell.Main>
