@@ -1,5 +1,14 @@
 import { ReactNode } from "react";
-import { AppShell, Box, Burger, createTheme, MantineProvider, Text } from "@mantine/core";
+import {
+  AppShell,
+  Box,
+  Burger,
+  createTheme,
+  Group,
+  MantineProvider,
+  Text,
+  Title,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { ModalsProvider } from "@mantine/modals";
 import { Notifications } from "@mantine/notifications";
@@ -38,26 +47,28 @@ const Default = ({ children }: TemplateProps) => {
           padding="sm"
         >
           <AppShell.Header>
-            <Burger
-              opened={opened}
-              onClick={toggle}
-              hiddenFrom="sm"
-              size="sm"
-            />
-            <div>Logo</div>
+            <Group align="center" h="100%" p={10}>
+              <Burger
+                opened={opened}
+                onClick={toggle}
+                hiddenFrom="sm"
+                size="sm"
+              />
+              <Title>Grass Routine</Title>
+            </Group>
           </AppShell.Header>
           <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
           <AppShell.Main>
             {children}
-            <Box pt={4}>
-              <Text>
-                {"Copyright © "}
-                {"h4topigeon "}
-                {new Date().getFullYear()}
-                {"."}
-              </Text>
-            </Box>
           </AppShell.Main>
+          <AppShell.Footer py={10}>
+            <Text ta="center">
+              {"Copyright © "}
+              {"h4topigeon "}
+              {new Date().getFullYear()}
+              {"."}
+            </Text>
+          </AppShell.Footer>
         </AppShell>
       </ModalsProvider>
     </MantineProvider>
