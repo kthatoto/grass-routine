@@ -1,12 +1,7 @@
 import "@mantine/core/styles";
 import "@mantine/notifications/styles";
 import { ReactNode } from "react";
-import {
-  Box,
-  createTheme,
-  MantineProvider,
-  Text,
-} from "@mantine/core";
+import { Box, createTheme, MantineProvider, Text } from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
 import { Notifications } from "@mantine/notifications";
 import authStore from "@/stores/authStore";
@@ -16,7 +11,7 @@ const globalFontFamily =
 
 const theme = createTheme({
   fontFamily: globalFontFamily,
-  black: '#444',
+  black: "#444",
   headings: {
     fontFamily: globalFontFamily,
   },
@@ -44,6 +39,6 @@ const Default = ({ children }: TemplateProps) => {
         </Box>
       </ModalsProvider>
     </MantineProvider>
-  )
+  );
 };
 export default Default;

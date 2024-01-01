@@ -1,11 +1,16 @@
-import { onAuthStateChanged, signInWithPopup, signOut, UserInfo } from "firebase/auth";
+import {
+  onAuthStateChanged,
+  signInWithPopup,
+  signOut,
+  UserInfo,
+} from "firebase/auth";
 import { create } from "zustand";
 import { auth, provider } from "@/firebase";
 
 interface AuthStore {
   user: UserInfo | null;
   loading: boolean;
-  error:  unknown | null;
+  error: unknown | null;
   signInWithGoogle: () => Promise<void>;
   signOut: () => Promise<void>;
 }

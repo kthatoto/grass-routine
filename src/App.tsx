@@ -7,14 +7,6 @@ const App = () => {
   const auth = authStore();
 
   if (auth.loading) return <></>;
-  return (
-    <Default>
-      {auth.user ? (
-        <Dashboard />
-      ) : (
-        <SignIn />
-      )}
-    </Default>
-  );
+  return <Default>{auth.user ? <Dashboard /> : <SignIn />}</Default>;
 };
 export default App;
