@@ -26,7 +26,7 @@ const provider = new GoogleAuthProvider();
 const isDevelopment = import.meta.env.DEV;
 if (isDevelopment) {
   connectAuthEmulator(auth, "http://localhost:9099");
-  connectFirestoreEmulator(database, "127.0.0.1", 8080);
+  connectFirestoreEmulator(database, "localhost", 8080);
 }
 
 export { database, auth, provider };
