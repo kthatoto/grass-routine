@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import {
   AppShell,
-  Box,
   Burger,
+  Button,
   createTheme,
   Group,
   MantineProvider,
@@ -57,7 +57,11 @@ const Default = ({ children }: TemplateProps) => {
               <Title>Grass Routine</Title>
             </Group>
           </AppShell.Header>
-          <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
+          <AppShell.Navbar p="md" bg="#eee">
+            {user && (
+              <Button onClick={signOut}>ログアウト</Button>
+            )}
+          </AppShell.Navbar>
           <AppShell.Main>
             {children}
           </AppShell.Main>

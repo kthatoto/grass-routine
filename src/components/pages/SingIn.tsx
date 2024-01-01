@@ -1,12 +1,14 @@
-import { Button } from "@mantine/core";
+import { Button, Center } from "@mantine/core";
 import authStore from "@/stores/authStore";
 
 const SignIn = () => {
-  const auth = authStore();
+  const { signInWithGoogle } = authStore();
   return (
-    <Button onClick={auth.signInWithGoogle} variant="outlined" size="large">
-      ログイン
-    </Button>
+    <Center>
+      <Button onClick={signInWithGoogle} fullWidth>
+        ログイン
+      </Button>
+    </Center>
   );
 };
 export default SignIn;
