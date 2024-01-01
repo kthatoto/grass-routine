@@ -1,8 +1,8 @@
-const SignIn = () => {
+const Dashboard = () => {
   return (
     <>
       <h1>Signed In</h1>
     </>
   );
 };
-export default SignIn;
+export default Dashboard;
