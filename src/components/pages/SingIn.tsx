@@ -1,5 +1,4 @@
-import { Button } from "@material-ui/core";
-import { Google } from "@mui/icons-material";
+import {Button} from "@mantine/core";
 import authStore from "@/stores/authStore";
 
 const SignIn = () => {
@@ -7,7 +6,6 @@ const SignIn = () => {
   return (
     <Button
       onClick={auth.signInWithGoogle}
-      startIcon={<Google />}
       variant="outlined"
       size="large"
     >ログイン</Button>
