@@ -6,6 +6,7 @@ import {
 } from "firebase/auth";
 import { create } from "zustand";
 import { auth, provider } from "@/firebase";
+import { showErrorNotification, showSuccessNotification } from "@/utils/notifications";
 
 interface AuthStore {
   user: UserInfo | null;
@@ -28,8 +29,10 @@ export default create<AuthStore>((set) => {
       set({ loading: true });
       try {
         const userCredential = await signInWithPopup(auth, provider);
+        showSuccessNotification("ログインしました");
         set({ user: userCredential.user, loading: false, error: null });
       } catch (error) {
+        showErrorNotification("ログインに失敗しました");
         set({ loading: false, error });
       }
     },
@@ -37,8 +40,10 @@ export default create<AuthStore>((set) => {
       set({ loading: true });
       try {
         await signOut(auth);
+        showSuccessNotification("ログアウトしました");
         set({ user: null, loading: false, error: null });
       } catch (error) {
+        showErrorNotification("ログアウトに失敗しました");
         set({ loading: false, error });
       }
     },
