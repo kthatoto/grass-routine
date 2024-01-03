@@ -1,8 +1,8 @@
 import { Button, Center } from "@mantine/core";
-import authStore from "@/stores/authStore";
+import useAuthStore from "@/stores/authStore";
 
 const SignIn = () => {
-  const { signInWithGoogle } = authStore();
+  const { signInWithGoogle } = useAuthStore();
   return (
     <Center>
       <Button onClick={signInWithGoogle} fullWidth>

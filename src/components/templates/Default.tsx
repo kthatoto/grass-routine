@@ -14,7 +14,7 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import { ModalsProvider } from "@mantine/modals";
 import { Notifications } from "@mantine/notifications";
-import authStore from "@/stores/authStore";
+import useAuthStore from "@/stores/authStore";
 
 const globalFontFamily =
   'Avenir, "Helvetica Neue", Helvetica, Arial, "Hiragino Kaku Gothic ProN", YuGothic';
@@ -34,7 +34,7 @@ interface TemplateProps {
 
 const Default = ({ children }: TemplateProps) => {
   const [opened, { toggle }] = useDisclosure();
-  const { user, signOut } = authStore();
+  const { user, signOut } = useAuthStore();
   return (
     <MantineProvider theme={theme}>
       <Notifications position="top-center" />
