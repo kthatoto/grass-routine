@@ -1,11 +1,18 @@
-import { showErrorNotification, showSuccessNotification } from "@/utils/notifications";
-import { Button } from "@mantine/core";
+import { useEffect } from "react";
+import useFieldsStore from "@/stores/fieldsStore";
+import useAuthStore from "@/stores/authStore";
+
 const Dashboard = () => {
+  const { user } = useAuthStore();
+  const { touchField } = useFieldsStore();
+  useEffect(() => {
+    if (!user) return;
+    touchField(user.uid);
+  }, [user, touchField]);
+
   return (
     <>
       <h1>Signed In</h1>
-      <Button onClick={() => showSuccessNotification("Success")}>Success</Button>
-      <Button onClick={() => showErrorNotification("Error")}>Error</Button>
     </>
   );
 };
