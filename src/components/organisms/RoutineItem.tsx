@@ -18,31 +18,26 @@ const RoutineItem = ({ routine }: Props) => {
             <span>Last: </span>
             {routine.lastTime ? (
               <span>{routine.lastTime.toString()}</span>
-            ) : "--"}
+            ) : (
+              "--"
+            )}
           </Text>
           <Text>
             <span>Total: </span>
-            <span>{routine.total} {routine.unit}</span>
+            <span>
+              {routine.total} {routine.unit}
+            </span>
           </Text>
         </Box>
         <Menu width={100}>
           <Menu.Target>
             <Button variant="subtle" size="compact-md">
-              <FontAwesomeIcon
-                icon={faEllipsisVertical}
-              />
+              <FontAwesomeIcon icon={faEllipsisVertical} />
             </Button>
           </Menu.Target>
           <Menu.Dropdown>
-            <Menu.Item
-              leftSection={
-                <FontAwesomeIcon icon={faEdit} />
-              }
-            >
-              <EditRoutine
-                routine={routine}
-                clickable="Edit"
-              />
+            <Menu.Item leftSection={<FontAwesomeIcon icon={faEdit} />}>
+              <EditRoutine routine={routine} clickable="Edit" />
             </Menu.Item>
           </Menu.Dropdown>
         </Menu>

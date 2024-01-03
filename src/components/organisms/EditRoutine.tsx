@@ -14,9 +14,7 @@ const EditRoutine = ({ routine, clickable }: Props) => {
 
   return (
     <>
-      <div onClick={open}>
-        {clickable}
-      </div>
+      <div onClick={open}>{clickable}</div>
       <Modal
         title={<Text fw="bold">Edit Routine</Text>}
         opened={opened}

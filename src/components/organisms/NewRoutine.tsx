@@ -12,9 +12,7 @@ const NewRoutine = ({ clickable }: Props) => {
 
   return (
     <>
-      <div onClick={open}>
-        {clickable}
-      </div>
+      <div onClick={open}>{clickable}</div>
       <Modal
         title={<Text fw="bold">New Routine</Text>}
         opened={opened}
