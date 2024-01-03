@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Flex, Stack } from "@mantine/core";
+import { Flex, Grid } from "@mantine/core";
 import useRoutinesStore from "@/stores/routinesStore";
 import useAuthStore from "@/stores/authStore";
 import RoutineItem from "@/components/molecules/RoutineItem";
@@ -15,14 +15,16 @@ const Dashboard = () => {
 
   return (
     <>
-      <Flex justify="flex-end">
+      <Flex justify="flex-end" mb={10}>
         <NewRoutine />
       </Flex>
-      <Stack>
+      <Grid>
         {routines.map((routine) => (
-          <RoutineItem key={routine.id} routine={routine} />
+          <Grid.Col span={6}>
+            <RoutineItem key={routine.id} routine={routine} />
+          </Grid.Col>
         ))}
-      </Stack>
+      </Grid>
     </>
   );
 };

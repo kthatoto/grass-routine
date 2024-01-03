@@ -59,7 +59,7 @@ const Default = ({ children }: TemplateProps) => {
               <Title>Grass Routine</Title>
             </Group>
           </AppShell.Header>
-          <AppShell.Navbar p="md" bg="#eee">
+          <AppShell.Navbar p="md">
             {user && (
               <>
                 <Group mb={10}>
@@ -75,8 +75,8 @@ const Default = ({ children }: TemplateProps) => {
               </>
             )}
           </AppShell.Navbar>
-          <AppShell.Main>{children}</AppShell.Main>
-          <AppShell.Footer py={10}>
+          <AppShell.Main bg="#efefef">{children}</AppShell.Main>
+          <AppShell.Footer py={10} bg="#efefef">
             <Text ta="center">
               {"Copyright © "}
               {"h4topigeon "}
