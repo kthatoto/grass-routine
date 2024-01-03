@@ -1,6 +1,6 @@
 import { Box, Button, Card, Grid, Group, Menu, Text } from "@mantine/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { Routine } from "@/models/routine";
 import EditRoutine from "@/components/organisms/EditRoutine";
 
@@ -25,7 +25,7 @@ const RoutineItem = ({ routine }: Props) => {
             <span>{routine.total} {routine.unit}</span>
           </Text>
         </Box>
-        <Menu>
+        <Menu width={100}>
           <Menu.Target>
             <Button variant="subtle" size="compact-md">
               <FontAwesomeIcon
@@ -34,7 +34,11 @@ const RoutineItem = ({ routine }: Props) => {
             </Button>
           </Menu.Target>
           <Menu.Dropdown>
-            <Menu.Item>
+            <Menu.Item
+              leftSection={
+                <FontAwesomeIcon icon={faEdit} />
+              }
+            >
               <EditRoutine
                 routine={routine}
                 clickable="Edit"
