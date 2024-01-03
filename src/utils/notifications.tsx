@@ -1,11 +1,14 @@
-import { faCheckCircle, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheckCircle,
+  faCircleXmark,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NotificationsProps, showNotification } from "@mantine/notifications";
 import { COLORS } from "@/styles/colors";
 
 export const showErrorNotification = (
   message: string,
-  options: Partial<NotificationsProps> = {}
+  options: Partial<NotificationsProps> = {},
 ) => {
   showNotification({
     title: message,
@@ -35,7 +38,7 @@ export const showErrorNotification = (
 
 export const showSuccessNotification = (
   message: string,
-  options: Partial<NotificationsProps> = {}
+  options: Partial<NotificationsProps> = {},
 ) => {
   showNotification({
     title: message,

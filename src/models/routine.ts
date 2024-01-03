@@ -1,9 +1,4 @@
-import {
-  addDoc,
-  collection,
-  doc,
-  getDocs,
-} from "firebase/firestore";
+import { addDoc, collection, doc, getDocs } from "firebase/firestore";
 import { db } from "@/firebase";
 import { FIELDS_COLLECTION_NAME } from "@/models/field";
 

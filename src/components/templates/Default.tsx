@@ -64,7 +64,7 @@ const Default = ({ children }: TemplateProps) => {
               <>
                 <Group mb={10}>
                   {user.photoURL && (
-                    <Image src={user.photoURL} w={40} h={40} radius="50%"/>
+                    <Image src={user.photoURL} w={40} h={40} radius="50%" />
                   )}
                   <Stack gap={0}>
                     <Text fw="bold">{user.displayName}</Text>
@@ -75,9 +75,7 @@ const Default = ({ children }: TemplateProps) => {
               </>
             )}
           </AppShell.Navbar>
-          <AppShell.Main>
-            {children}
-          </AppShell.Main>
+          <AppShell.Main>{children}</AppShell.Main>
           <AppShell.Footer py={10}>
             <Text ta="center">
               {"Copyright © "}

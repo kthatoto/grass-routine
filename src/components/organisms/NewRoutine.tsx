@@ -9,10 +9,9 @@ const NewRoutine = () => {
 
   return (
     <>
-      <Button
-        leftSection={<FontAwesomeIcon icon={faPlus}/>}
-        onClick={open}
-      >New Routine</Button>
+      <Button leftSection={<FontAwesomeIcon icon={faPlus} />} onClick={open}>
+        New Routine
+      </Button>
       <Modal
         title={<Text fw="bold">New Routine</Text>}
         opened={opened}

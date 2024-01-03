@@ -6,7 +6,10 @@ import {
 } from "firebase/auth";
 import { create } from "zustand";
 import { auth, provider } from "@/firebase";
-import { showErrorNotification, showSuccessNotification } from "@/utils/notifications";
+import {
+  showErrorNotification,
+  showSuccessNotification,
+} from "@/utils/notifications";
 
 interface AuthStore {
   user: UserInfo | null;

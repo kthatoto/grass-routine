@@ -14,13 +14,13 @@ interface Props {
 interface FormValues {
   title: string;
   unit: string;
-  memo: string | null;
+  memo?: string;
 }
 
 const formSchema = z.object({
   title: z.string().min(1),
   unit: z.string().min(1),
-  memo: z.string().nullable(),
+  memo: z.string().optional(),
 });
 
 const RoutineForm = ({ close }: Props) => {
@@ -35,7 +35,7 @@ const RoutineForm = ({ close }: Props) => {
     defaultValues: {
       title: "",
       unit: "",
-      memo: null,
+      memo: undefined,
     },
   });
 
@@ -54,37 +54,27 @@ const RoutineForm = ({ close }: Props) => {
           control={control}
           name="title"
           render={({ field }) => (
-            <TextInput
-              label="Title"
-              error={errors.title?.message}
-              {...field}
-            />
+            <TextInput label="Title" error={errors.title?.message} {...field} />
           )}
         />
         <Controller
           control={control}
           name="unit"
           render={({ field }) => (
-            <TextInput
-              label="Unit"
-              error={errors.unit?.message}
-              {...field}
-            />
+            <TextInput label="Unit" error={errors.unit?.message} {...field} />
           )}
         />
         <Controller
           control={control}
           name="memo"
           render={({ field }) => (
-            <Textarea
-              label="Memo"
-              error={errors.memo?.message}
-              {...field}
-            />
+            <Textarea label="Memo" error={errors.memo?.message} {...field} />
           )}
         />
         <Flex justify="flex-end">
-          <Button type="submit" w={144}>Save</Button>
+          <Button type="submit" w={144}>
+            Save
+          </Button>
         </Flex>
       </Stack>
     </form>
