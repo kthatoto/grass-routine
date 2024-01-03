@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDocs } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 import { FIELDS_COLLECTION_NAME } from "@/models/field";
 
@@ -44,4 +44,11 @@ export const addRoutine = async (uid: string, params: RoutineParams) => {
       lastTime: null,
     }
   );
+};
+
+export const updateRoutine = async (uid: string, routineId: string, params: RoutineParams) => {
+  const fieldDocRef = doc(db, FIELDS_COLLECTION_NAME, uid);
+  const routinesRef = collection(fieldDocRef, ROUTINES_COLLECTION_NAME);
+  const routineRef = doc(routinesRef, routineId);
+  await updateDoc(routineRef, { ...params });
 };

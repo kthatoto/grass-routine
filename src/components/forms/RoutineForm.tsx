@@ -4,10 +4,11 @@ import { z } from "zod";
 import { Controller, useForm } from "react-hook-form";
 import useAuthStore from "@/stores/authStore";
 import useRoutinesStore from "@/stores/routinesStore";
-import { addRoutine } from "@/models/routine";
+import { Routine, addRoutine, updateRoutine } from "@/models/routine";
 import { showSuccessNotification } from "@/utils/notifications";
 
 interface Props {
+  routine?: Routine;
   close: () => void;
 }
 
@@ -23,7 +24,7 @@ const formSchema = z.object({
   memo: z.string().optional(),
 });
 
-const RoutineForm = ({ close }: Props) => {
+const RoutineForm = ({ routine, close }: Props) => {
   const { user } = useAuthStore();
   const { getRoutines } = useRoutinesStore();
   const {
@@ -33,16 +34,22 @@ const RoutineForm = ({ close }: Props) => {
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: "",
-      unit: "",
-      memo: undefined,
+      title: routine?.title || "",
+      unit: routine?.unit || "",
+      memo: routine?.memo || undefined,
     },
   });
 
   const onSubmit = handleSubmit(async (params) => {
     if (!user) return;
-    await addRoutine(user.uid, { ...params, memo: params.memo || null });
-    showSuccessNotification("Created new routine!");
+    const serializedParams = { ...params, memo: params.memo || null };
+    if (routine) {
+      await updateRoutine(user.uid, routine.id, serializedParams);
+      showSuccessNotification("Updated new routine!");
+    } else {
+      await addRoutine(user.uid, serializedParams);
+      showSuccessNotification("Created new routine!");
+    }
     getRoutines(user.uid);
     close();
   });
