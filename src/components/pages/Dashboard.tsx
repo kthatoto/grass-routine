@@ -20,7 +20,7 @@ const Dashboard = () => {
       </Flex>
       <Stack>
         {routines.map((routine) => (
-          <RoutineItem routine={routine} />
+          <RoutineItem key={routine.id} routine={routine} />
         ))}
       </Stack>
     </>
