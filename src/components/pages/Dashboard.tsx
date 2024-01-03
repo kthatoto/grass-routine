@@ -1,14 +1,14 @@
 import { useEffect } from "react";
-import useFieldsStore from "@/stores/fieldsStore";
+import useRoutinesStore from "@/stores/routinesStore";
 import useAuthStore from "@/stores/authStore";
 
 const Dashboard = () => {
   const { user } = useAuthStore();
-  const { touchField } = useFieldsStore();
+  const { getRoutines } = useRoutinesStore();
   useEffect(() => {
     if (!user) return;
-    touchField(user.uid);
-  }, [user, touchField]);
+    getRoutines(user.uid);
+  }, [user, getRoutines]);
 
   return (
     <>
