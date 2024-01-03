@@ -8,10 +8,10 @@ export interface Routine {
   id: string;
   title: string;
   unit: string;
-  lastTime?: Date;
-  total?: number;
+  lastTime: Date | null;
+  total: number;
   memo: string | null;
-  archived?: boolean;
+  archived: boolean;
 }
 
 interface RoutineParams {
@@ -35,5 +35,13 @@ export const listRoutines = async (uid: string) => {
 export const addRoutine = async (uid: string, params: RoutineParams) => {
   const fieldDocRef = doc(db, FIELDS_COLLECTION_NAME, uid);
   const routinesRef = collection(fieldDocRef, ROUTINES_COLLECTION_NAME);
-  await addDoc(routinesRef, params);
+  await addDoc(
+    routinesRef,
+    {
+      ...params,
+      total: 0,
+      archived: false,
+      lastTime: null,
+    }
+  );
 };

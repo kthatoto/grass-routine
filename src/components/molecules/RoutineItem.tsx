@@ -8,7 +8,17 @@ interface Props {
 const RoutineItem = ({ routine }: Props) => {
   return (
     <Card>
-      <Text>{routine.title}</Text>
+      <Text fw="bold">{routine.title}</Text>
+      <Text>
+        <span>Last: </span>
+        {routine.lastTime ? (
+          <span>{routine.lastTime.toString()}</span>
+        ) : "--"}
+      </Text>
+      <Text>
+        <span>Total: </span>
+        <span>{routine.total} {routine.unit}</span>
+      </Text>
     </Card>
   );
 };
