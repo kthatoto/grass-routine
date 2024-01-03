@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { Stack } from "@mantine/core";
+import { Flex, Stack } from "@mantine/core";
 import useRoutinesStore from "@/stores/routinesStore";
 import useAuthStore from "@/stores/authStore";
 import RoutineItem from "@/components/molecules/RoutineItem";
+import NewRoutine from "@/components/organisms/NewRoutine";
 
 const Dashboard = () => {
   const { user } = useAuthStore();
@@ -13,11 +14,16 @@ const Dashboard = () => {
   }, [user, getRoutines]);
 
   return (
-    <Stack>
-      {routines.map((routine) => (
-        <RoutineItem routine={routine} />
-      ))}
-    </Stack>
+    <>
+      <Flex justify="flex-end">
+        <NewRoutine />
+      </Flex>
+      <Stack>
+        {routines.map((routine) => (
+          <RoutineItem routine={routine} />
+        ))}
+      </Stack>
+    </>
   );
 };
 export default Dashboard;
