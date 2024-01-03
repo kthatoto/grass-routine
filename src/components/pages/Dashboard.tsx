@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Flex, Grid } from "@mantine/core";
 import useRoutinesStore from "@/stores/routinesStore";
 import useAuthStore from "@/stores/authStore";
-import RoutineItem from "@/components/molecules/RoutineItem";
+import RoutineItem from "@/components/organisms/RoutineItem";
 import NewRoutine from "@/components/organisms/NewRoutine";
 
 const Dashboard = () => {
