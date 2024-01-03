@@ -1,4 +1,6 @@
-import { Card, Grid, Text } from "@mantine/core";
+import { Box, Button, Card, Grid, Group, Menu, Text } from "@mantine/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { Routine } from "@/models/routine";
 import EditRoutine from "@/components/organisms/EditRoutine";
 
@@ -9,21 +11,41 @@ interface Props {
 const RoutineItem = ({ routine }: Props) => {
   return (
     <Card>
-      <Text fw="bold">{routine.title}</Text>
-      <Text>
-        <span>Last: </span>
-        {routine.lastTime ? (
-          <span>{routine.lastTime.toString()}</span>
-        ) : "--"}
-      </Text>
-      <Text>
-        <span>Total: </span>
-        <span>{routine.total} {routine.unit}</span>
-      </Text>
-      <Grid mt={10}>
-        <Grid.Col span={6}>
-          <EditRoutine routine={routine} />
-        </Grid.Col>
+      <Group justify="space-between" align="flex-start">
+        <Box>
+          <Text fw="bold">{routine.title}</Text>
+          <Text>
+            <span>Last: </span>
+            {routine.lastTime ? (
+              <span>{routine.lastTime.toString()}</span>
+            ) : "--"}
+          </Text>
+          <Text>
+            <span>Total: </span>
+            <span>{routine.total} {routine.unit}</span>
+          </Text>
+        </Box>
+        <Menu>
+          <Menu.Target>
+            <Button variant="subtle" size="compact-md">
+              <FontAwesomeIcon
+                icon={faEllipsisVertical}
+              />
+            </Button>
+          </Menu.Target>
+          <Menu.Dropdown>
+            <Menu.Item>
+              <EditRoutine
+                routine={routine}
+                clickable="Edit"
+              />
+            </Menu.Item>
+          </Menu.Dropdown>
+        </Menu>
+      </Group>
+      <Grid>
+        <Grid.Col span={6}></Grid.Col>
+        <Grid.Col span={6}></Grid.Col>
       </Grid>
     </Card>
   );

@@ -1,5 +1,7 @@
 import { useEffect } from "react";
-import { Flex, Grid } from "@mantine/core";
+import { Button, Flex, Grid } from "@mantine/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import useRoutinesStore from "@/stores/routinesStore";
 import useAuthStore from "@/stores/authStore";
 import RoutineItem from "@/components/organisms/RoutineItem";
@@ -16,7 +18,13 @@ const Dashboard = () => {
   return (
     <>
       <Flex justify="flex-end" mb={10}>
-        <NewRoutine />
+        <NewRoutine
+          clickable={
+            <Button leftSection={<FontAwesomeIcon icon={faPlus} />}>
+              New Routine
+            </Button>
+          }
+        />
       </Flex>
       <Grid>
         {routines.map((routine) => (

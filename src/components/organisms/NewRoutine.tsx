@@ -1,17 +1,20 @@
-import { Button, Modal, Text } from "@mantine/core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { ReactNode } from "react";
+import { Modal, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import RoutineForm from "@/components/forms/RoutineForm";
 
-const NewRoutine = () => {
+interface Props {
+  clickable: ReactNode;
+}
+
+const NewRoutine = ({ clickable }: Props) => {
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <>
-      <Button leftSection={<FontAwesomeIcon icon={faPlus} />} onClick={open}>
-        New Routine
-      </Button>
+      <div onClick={open}>
+        {clickable}
+      </div>
       <Modal
         title={<Text fw="bold">New Routine</Text>}
         opened={opened}

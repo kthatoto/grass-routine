@@ -1,27 +1,22 @@
-import { Button, Modal, Text } from "@mantine/core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { ReactNode } from "react";
+import { Modal, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import RoutineForm from "@/components/forms/RoutineForm";
 import { Routine } from "@/models/routine";
 
 interface Props {
   routine: Routine;
+  clickable: ReactNode;
 }
 
-const EditRoutine = ({ routine }: Props) => {
+const EditRoutine = ({ routine, clickable }: Props) => {
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <>
-      <Button
-        leftSection={<FontAwesomeIcon icon={faEdit} />}
-        onClick={open}
-        fullWidth
-        variant="default"
-      >
-        Edit
-      </Button>
+      <div onClick={open}>
+        {clickable}
+      </div>
       <Modal
         title={<Text fw="bold">Edit Routine</Text>}
         opened={opened}
