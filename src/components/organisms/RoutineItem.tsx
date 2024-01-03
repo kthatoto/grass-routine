@@ -29,7 +29,7 @@ const RoutineItem = ({ routine }: Props) => {
             </span>
           </Text>
         </Box>
-        <Menu width={100}>
+        <Menu width={100} position="bottom-end">
           <Menu.Target>
             <Button variant="subtle" size="compact-md">
               <FontAwesomeIcon icon={faEllipsisVertical} />
