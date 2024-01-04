@@ -12,10 +12,8 @@ interface Props {
 }
 
 const EditRoutine = ({ routine, clickable, opened, close }: Props) => {
-  const [
-    innerOpened,
-    { open: innerOpen, close: innerClose }
-  ] = useDisclosure(false);
+  const [innerOpened, { open: innerOpen, close: innerClose }] =
+    useDisclosure(false);
 
   return (
     <>

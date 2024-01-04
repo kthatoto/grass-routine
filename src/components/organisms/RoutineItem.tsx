@@ -1,4 +1,13 @@
-import { Box, Button, Card, Grid, Group, Menu, Modal, Text } from "@mantine/core";
+import {
+  Box,
+  Button,
+  Card,
+  Grid,
+  Group,
+  Menu,
+  Modal,
+  Text,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
