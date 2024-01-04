@@ -6,21 +6,26 @@ import { Routine } from "@/models/routine";
 
 interface Props {
   routine: Routine;
-  clickable: ReactNode;
+  clickable?: ReactNode;
+  opened?: boolean;
+  close?: () => void;
 }
 
-const EditRoutine = ({ routine, clickable }: Props) => {
-  const [opened, { open, close }] = useDisclosure(false);
+const EditRoutine = ({ routine, clickable, opened, close }: Props) => {
+  const [
+    innerOpened,
+    { open: innerOpen, close: innerClose }
+  ] = useDisclosure(false);
 
   return (
     <>
-      <div onClick={open}>{clickable}</div>
+      {clickable && <div onClick={innerOpen}>{clickable}</div>}
       <Modal
         title={<Text fw="bold">Edit Routine</Text>}
-        opened={opened}
-        onClose={close}
+        opened={opened || innerOpened}
+        onClose={close ?? innerClose}
       >
-        <RoutineForm routine={routine} close={close} />
+        <RoutineForm routine={routine} close={close ?? innerClose} />
       </Modal>
     </>
   );
