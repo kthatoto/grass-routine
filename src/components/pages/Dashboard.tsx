@@ -28,7 +28,7 @@ const Dashboard = () => {
       </Flex>
       <Grid>
         {routines.map((routine) => (
-          <Grid.Col span={6} key={routine.id}>
+          <Grid.Col span={{ base: 6, lg: 4, xl: 3 }} key={routine.id}>
             <RoutineItem routine={routine} />
           </Grid.Col>
         ))}
