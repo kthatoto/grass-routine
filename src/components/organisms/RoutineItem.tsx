@@ -5,7 +5,6 @@ import {
   Grid,
   Group,
   Menu,
-  Modal,
   Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
